@@ -3,6 +3,7 @@
 #include "./huffmanTree/huffmanTree.h"
 #include "./files/readFile.h"
 #include "./huffmanTree/generateHuffmanCode.h"
+#include "./files/generateOutputFile.h"
 void createNodes(PriorityQueue& pq,std::vector<Character>& characters){
   
   for(Character c:characters){
@@ -20,8 +21,10 @@ int main(){
   
   Node* root = buildTree(pq);
   std::vector<EncodedCharacter> vec = generateCode(root);
+  
   for(EncodedCharacter ec:vec){
     std::cout<<ec.character<<' '<<ec.code<<std::endl;
   }
+  generateOutputFile("./files/inputFile.txt",vec);
   return 0;
 }
