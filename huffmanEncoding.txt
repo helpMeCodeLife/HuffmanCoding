@@ -1,0 +1,24 @@
+algorithm: build huffman tree
+input: nodes containing characters with their frequency
+output: root of huffman tree
+
+step1: insert all the nodes containing each character with their frequency in ascending priority queue
+step2: while priority queue has more than 1 node:
+step3: dequeue two nodes c1 and c2 from the priority queue
+step3: create new node n
+step4: n->key = sum of c1->key and c2->key
+step5: n->left = c1, n->right=c2
+step6: pq.enqueue(n)
+step7: end while
+step8: dequeue result from priority queue
+step9: return result node
+
+
+algorithm: generateHuffmanCode(root,code)
+
+step1: if root is leaf node:
+        enqueue code and character into pq 
+        return
+step2: generateHuffmanCode(root->left,code+'0')
+step3: generateHuffmanCode(root->right,code+'1');
+step4: end        
