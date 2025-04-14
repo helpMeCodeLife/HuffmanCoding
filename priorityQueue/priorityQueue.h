@@ -1,11 +1,17 @@
 #pragma once
 
 #include <vector>
+#include <string>
 
 class Character{
   public:
     char character;
     int freq;
+};
+class EncodedCharacter{
+  public:
+    char character;
+    std::string code;
 };
 
 class Node{
@@ -21,11 +27,11 @@ class PriorityQueue{
     std::vector<Node*> vec;
     std::vector<Node*> dequeuedNodes;
     void heapify(std::vector<Node*>&,int,int);
-    void swap(Node*,Node*);
   public:
     PriorityQueue();
     ~PriorityQueue();
     void enqueue(Node*);
     Node* dequeue();
     int size();
+    void display();
 };

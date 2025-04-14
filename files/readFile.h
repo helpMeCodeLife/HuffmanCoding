@@ -1,5 +1,5 @@
 #pragma once
 #include <fstream>
 #include <vector>
-
-std::vector<Character>& readFile(std::string);
+#include "../priorityQueue/priorityQueue.h"
+std::vector<Character> readFile(std::string);

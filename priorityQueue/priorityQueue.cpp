@@ -1,22 +1,11 @@
 #include "./priorityQueue.h"
-
+#include <iostream>
+#include <algorithm>
 Node::Node(Character c){
       data.character = c.character;
       data.freq = c.freq;
       left = nullptr;
       right= nullptr;
-}
-void PriorityQueue::swap(Node* c1,Node* c2){
-  Character temp;
-  temp.character = c1->data.character;
-  temp.freq = c1->data.freq;
-
-  c1->data.character = c2->data.character;
-  c1->data.freq = c2->data.freq;
-  
-  c2->data.character = temp.character;
-  c2->data.freq = temp.freq;
-  return;
 }
 PriorityQueue::PriorityQueue(){}
 PriorityQueue::~PriorityQueue(){
@@ -40,7 +29,7 @@ void PriorityQueue::heapify(std::vector<Node*>& vec,int n,int i){
   }
 
   if(smallest != i){
-    swap(vec[i],vec[smallest]);
+    std::swap(vec[i],vec[smallest]);
     heapify(vec,n,smallest);
   }
   return;
@@ -58,7 +47,7 @@ void PriorityQueue::enqueue(Node* c){
 }
 
 Node* PriorityQueue::dequeue(){
-  swap(vec[0],vec[vec.size()-1]);
+  std::swap(vec[0],vec[vec.size()-1]);
   Node* c = vec[vec.size()-1];
   dequeuedNodes.push_back(c);
   vec.pop_back();
@@ -67,4 +56,10 @@ Node* PriorityQueue::dequeue(){
 }
 int PriorityQueue::size(){
   return vec.size();
+}
+void PriorityQueue::display(){
+  for(Node* n:vec){
+    std::cout<<n->data.character<<n->data.freq<<' ';
+  }
+  std::cout<<"\n";
 }
