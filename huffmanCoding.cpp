@@ -1,5 +1,6 @@
 #include <iostream>
-#include "./pqHuffmanCoding.h"
+#include "./priorityQueue/priorityQueue.h"
+
 Node* buildHuffmanTree(PriorityQueue& pq){
   while(pq.size()>1){
     Node* c1 = pq.dequeue();
@@ -30,6 +31,7 @@ int main(){
   pq.enqueue(C);
   pq.enqueue(D);
 
-  buildHuffmanTree(pq);
+  Node* root = buildHuffmanTree(pq);
+  std::cout<<root->data.freq;
   return 0;
 }

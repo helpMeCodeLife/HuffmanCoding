@@ -1,4 +1,4 @@
-#include "./pqHuffmanCoding.h"
+#include "./priorityQueue.h"
 
 Node::Node(Character c){
       data.character = c.character;
