@@ -1,6 +1,6 @@
 #include <iostream>
 #include "./generateOutputFile.h"
-
+#include "../compression/compressIntoBits.h"
 void generateOutputFile(std::string filePath,std::vector<EncodedCharacter> vec){
   std::ifstream inputFile(filePath);
   if(!inputFile){
@@ -19,7 +19,10 @@ void generateOutputFile(std::string filePath,std::vector<EncodedCharacter> vec){
   }
   inputFile.close();
 
+  compressIntoBits(huffmanCode);
+
   std::ofstream outputFile("files/outputFile.txt");
+
   outputFile<<huffmanCode;
   outputFile.close();
 }

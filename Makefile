@@ -7,14 +7,16 @@ SOURCES = main.cpp \
           priorityQueue/priorityQueue.cpp \
 					huffmanTree/generateHuffmanCode.cpp \
 					files/generateOutputFile.cpp \
-					files/readFile.cpp
+					files/readFile.cpp \
+					compression/compressIntoBits.cpp
 
 
 HEADERS = huffmanTree/huffmanTree.h \
           priorityQueue/priorityQueue.h \
 					huffmanTree/generateHuffmanCode.h \
 					files/generateOutputFile.h \
-					files/readFile.h
+					files/readFile.h \
+					compression/compressIntoBits.h
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
