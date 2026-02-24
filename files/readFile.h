@@ -3,3 +3,4 @@
 #include <vector>
 #include "../priorityQueue/priorityQueue.h"
 std::vector<Character> readFile(std::string);
+int characterCountInFile(std::string);

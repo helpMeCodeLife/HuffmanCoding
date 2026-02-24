@@ -31,3 +31,15 @@ std::vector<Character> readFile(std::string filePath){
   inputFile.close();
   return characters;
 }
+
+int characterCountInFile(std::string filePath){
+  std::ifstream inputFile(filePath);
+  if(!inputFile){
+    std::cout<<"error reading file"<<std::endl;
+    return -1;
+  }
+  std::string content((std::istreambuf_iterator<char>(inputFile)),
+                         std::istreambuf_iterator<char>());
+  inputFile.close();
+  return content.size();
+}
